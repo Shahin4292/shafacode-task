@@ -53,7 +53,6 @@ class MusicWallpaperCard extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(iconImage),
-                fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(10),
             ),
@@ -61,7 +60,7 @@ class MusicWallpaperCard extends StatelessWidget {
         ),
 
         Positioned(
-          top: 134, left: 103, right: 103,
+          top: 138, left: 103, right: 103,
           child: Column(
             children: [
               Row(
@@ -76,6 +75,7 @@ class MusicWallpaperCard extends StatelessWidget {
               ),
 
               Container(
+                width: 137,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.black, width: 2.5),

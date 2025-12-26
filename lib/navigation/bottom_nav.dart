@@ -27,7 +27,7 @@ class _BottomNavState extends State<BottomNav> {
     HomeScreen(),
     SoundScreen(),
     SoulScreen(),
-    Center(child: Text("Top")),
+    SoulScreen(),
     Center(child: Text("More")),
   ];
 

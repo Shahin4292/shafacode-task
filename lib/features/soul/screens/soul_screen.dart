@@ -26,8 +26,6 @@ class SoulScreen extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 9),
-
             SoulActionSection(
               tags: ["Ambition", "Inspiration", "Motivitioanal"],
               views: "567.57k",
@@ -60,7 +58,7 @@ class SoulScreen extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 9),
+            SizedBox(height: 13),
 
             SoulActionSection(
               tags: ["Ambition", "Inspiration", "Motivitioanal"],
@@ -82,8 +80,6 @@ class SoulScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
-
-            SizedBox(height: 9),
 
             SoulActionSection(
               tags: ["Ambition", "Inspiration", "Motivitioanal"],
