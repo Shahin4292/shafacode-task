@@ -43,4 +43,7 @@ class ImagePath {
   static const String memorial = 'assets/icons/memorial.png';
   static const String save = 'assets/icons/save.png';
   static const String cardinals = 'assets/icons/cardinals.png';
+  static const String download = 'assets/icons/download.png';
+  static const String saved = 'assets/icons/saved.png';
+  static const String share = 'assets/icons/share.png';
 }
