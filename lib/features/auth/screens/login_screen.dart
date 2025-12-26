@@ -1,28 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:shafacode_task/features/auth/screens/login_screen.dart';
 import 'package:shafacode_task/features/auth/widget/custom_next_button.dart';
 import 'package:shafacode_task/features/auth/widget/custom_text_field.dart';
 import 'package:shafacode_task/features/auth/widget/top_tap_bar.dart';
 import 'package:shafacode_task/utils/image_path.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
-  final _usernameCtrl = TextEditingController();
+class _LoginScreenState extends State<LoginScreen> {
   final _passwordCtrl = TextEditingController();
-  final _confirmPasswordCtrl = TextEditingController();
   final _emailCtrl = TextEditingController();
-  int selectedIndex = 0;
+  int selectedIndex = 1;
 
   bool get isFormFilled {
-    return _usernameCtrl.text.isNotEmpty &&
-        _passwordCtrl.text.isNotEmpty &&
-        _confirmPasswordCtrl.text.isNotEmpty &&
+    return _passwordCtrl.text.isNotEmpty &&
         _emailCtrl.text.isNotEmpty;
   }
 
@@ -30,9 +25,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   void initState() {
     super.initState();
-    _usernameCtrl.addListener(_onTextChange);
     _passwordCtrl.addListener(_onTextChange);
-    _confirmPasswordCtrl.addListener(_onTextChange);
     _emailCtrl.addListener(_onTextChange);
   }
 
@@ -40,18 +33,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     setState(() {});
   }
 
-  void controllerClean(){
-    _usernameCtrl.clear();
-    _passwordCtrl.clear();
-    _confirmPasswordCtrl.clear();
-    _emailCtrl.clear();
-  }
-
   @override
   void dispose() {
-    _usernameCtrl.dispose();
     _passwordCtrl.dispose();
-    _confirmPasswordCtrl.dispose();
     _emailCtrl.dispose();
     super.dispose();
   }
@@ -82,9 +66,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     selectedIndex: selectedIndex,
                     signUp: () {
                       setState(() => selectedIndex = 0);
+                      Navigator.pop(context);
                     },
                     login: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => LoginScreen()));
+                      setState(() => selectedIndex = 1);
                     },
                   ),
 
@@ -93,10 +78,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Column(
                       spacing: 15,
                       children: [
-                        CustomTextField(hintText: 'Enter Your Username', controller: _usernameCtrl),
-                        CustomTextField(hintText: 'Create A Password', controller: _passwordCtrl, isPassword: true,),
-                        CustomTextField(hintText: 'Confirm Password', controller: _confirmPasswordCtrl, isPassword: true,),
                         CustomTextField(hintText: 'Enter your email address', controller: _emailCtrl),
+                        CustomTextField(hintText: 'Enter Password', controller: _passwordCtrl, isPassword: true,),
                       ],
                     ),
                   ),
@@ -116,7 +99,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       //   MaterialPageRoute(builder: (_) => const HomeScreen()),
                       //       (route) => false,
                       // );
-                      controllerClean();
                     },
                     isEnabled: isFormFilled,
                   ),
