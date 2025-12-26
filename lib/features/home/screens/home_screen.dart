@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shafacode_task/features/home/widget/category_chip.dart';
-import 'package:shafacode_task/features/home/widget/grid_view_item.dart';
+import 'package:shafacode_task/features/home/widget/grid_view_item.dart' show GridViewItems;
+import 'package:shafacode_task/features/home/widget/label_image.dart';
+import 'package:shafacode_task/features/home/widget/section_header.dart';
 import 'package:shafacode_task/utils/app_color.dart';
 import 'package:shafacode_task/utils/image_path.dart';
 
@@ -13,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
+  int selectedLabel = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -77,116 +80,92 @@ class _HomeScreenState extends State<HomeScreen> {
 
               const SizedBox(height: 30),
 
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: GridView.count(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisCount: 3,
-                  crossAxisSpacing: 18,
-                  mainAxisSpacing: 18,
-                  childAspectRatio: 1.2,
-                  children: [
-                    GridItem(
-                      iconPath: ImagePath.cardinal,
-                      title: 'Cardinal\nSounds',
-                      onTap: () {},
-                    ),
+              GridViewItems(),
 
-                    GridItem(
-                      iconPath: ImagePath.wallpaper,
-                      title: 'Wallpaper',
-                      onTap: () {},
-                    ),
+              const SizedBox(height: 40),
 
-                    GridItem(
-                      iconPath: ImagePath.nature,
-                      title: 'Nature Sounds',
-                      onTap: () {},
-                    ),
-
-                    GridItem(
-                      iconPath: ImagePath.sleeping,
-                      title: 'Sleeping Sounds',
-                      onTap: () {},
-                    ),
-
-                    GridItem(
-                      iconPath: ImagePath.meditation,
-                      title: 'Meditation',
-                      onTap: () {},
-                    ),
-
-                    GridItem(
-                      iconPath: ImagePath.breathing,
-                      title: 'Breathing Exercises',
-                      onTap: () {},
-                    ),
-
-                    GridItem(
-                      iconPath: ImagePath.short,
-                      title: 'Short Meditations',
-                      onTap: () {},
-                    ),
-
-                    GridItem(
-                      iconPath: ImagePath.meditational,
-                      title: 'Meditational Audios',
-                      onTap: () {},
-                    ),
-
-                    GridItem(
-                      iconPath: ImagePath.topFilled,
-                      title: 'Top Quotes',
-                      onTap: () {},
-                    ),
-
-                    GridItem(
-                      iconPath: ImagePath.soulFilled,
-                      title: 'Soul Check-In',
-                      onTap: () {},
-                    ),
-
-                    GridItem(
-                      iconPath: ImagePath.sacred,
-                      title: 'Sacred Journals',
-                      onTap: () {},
-                    ),
-
-                    GridItem(
-                      iconPath: ImagePath.medicine,
-                      title: 'Medicine Notes',
-                      onTap: () {},
-                    ),
-
-                    GridItem(
-                      iconPath: ImagePath.memorial,
-                      title: 'Memorial Cards',
-                      onTap: () {},
-                    ),
-
-                    GridItem(
-                      iconPath: ImagePath.save,
-                      title: 'Save',
-                      onTap: () {},
-                    ),
-
-                    GridItem(
-                      iconPath: ImagePath.cardinals,
-                      title: 'Cardinal Quotes',
-                      onTap: () {},
-                    ),
-
-                    // GridItem(
-                    //   iconPath: ImagePath.wallpaper,
-                    //   title: 'Wallpaper',
-                    //   onTap: () {
-                    //     debugPrint('Cardinal Sounds');
-                    //   },
-                    // ),
-                  ],
-                ),
+              SectionHeader(
+                title: "Featured Wallpaper",
+                onTap: () {},
               ),
+
+              const SizedBox(height: 13),
+
+              SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.only(left: 25),
+                  physics: const BouncingScrollPhysics(),
+                  child: Row(
+                    spacing: 15,
+                    children: [
+                      LabelImage(index: 0, selectedIndex: selectedLabel, imagePath: ImagePath.work, onTap: () {  }),
+                      LabelImage(index: 1, selectedIndex: selectedLabel, imagePath: ImagePath.relax, onTap: () {  }),
+                      LabelImage(index: 2, selectedIndex: selectedLabel, imagePath: ImagePath.workOut, onTap: () {  }),
+                    ],
+                  )),
+
+              const SizedBox(height: 32),
+
+              SectionHeader(
+                title: "Featured Quotes",
+                onTap: () {},
+              ),
+
+              const SizedBox(height: 13),
+
+              SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.only(left: 25),
+                  physics: const BouncingScrollPhysics(),
+                  child: Row(
+                    spacing: 15,
+                    children: [
+                      LabelImage(index: 0, selectedIndex: selectedLabel, imagePath: ImagePath.wont, onTap: () {  }),
+                      LabelImage(index: 1, selectedIndex: selectedLabel, imagePath: ImagePath.get, onTap: () {  }),
+                      LabelImage(index: 2, selectedIndex: selectedLabel, imagePath: ImagePath.once, onTap: () {  }),
+                    ],
+                  )),
+
+              const SizedBox(height: 40),
+
+              SectionHeader(
+                title: "Featured Memorial Cards",
+                onTap: () {},
+              ),
+
+              const SizedBox(height: 13),
+
+              SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.only(left: 25),
+                  physics: const BouncingScrollPhysics(),
+                  child: Row(
+                    spacing: 15,
+                    children: [
+                      LabelImage(index: 0, selectedIndex: selectedLabel, imagePath: ImagePath.giveUp, onTap: () {  }),
+                      LabelImage(index: 1, selectedIndex: selectedLabel, imagePath: ImagePath.struggle, onTap: () {  }),
+                      LabelImage(index: 2, selectedIndex: selectedLabel, imagePath: ImagePath.be, onTap: () {  }),
+                    ],
+                  )),
+              const SizedBox(height: 40),
+
+              SectionHeader(
+                title: "Announcement",
+                onTap: () {},
+              ),
+
+              const SizedBox(height: 13),
+              
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 25),
+                height: 132,
+                width: MediaQuery.sizeOf(context).width,
+                decoration: BoxDecoration(
+                  image: DecorationImage(image: AssetImage(ImagePath.positive)),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              )
+
             ],
           ),
         ),

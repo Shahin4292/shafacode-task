@@ -1,6 +1,16 @@
 class ImagePath {
   static const String bird = 'assets/images/bird.png';
   static const String image = 'assets/images/image.png';
+  static const String relax = 'assets/images/relax.png';
+  static const String work = 'assets/images/work.png';
+  static const String workOut = 'assets/images/work_out.png';
+  static const String get = 'assets/images/get.png';
+  static const String once = 'assets/images/once.png';
+  static const String wont = 'assets/images/wont.png';
+  static const String giveUp = 'assets/images/give_up.png';
+  static const String struggle = 'assets/images/struggle.png';
+  static const String be = 'assets/images/be.png';
+  static const String positive = 'assets/images/positive.png';
 
   static const String homeOutline = 'assets/icons/home_outline.png';
   static const String soundOutline = 'assets/icons/sound_outline.png';

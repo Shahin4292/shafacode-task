@@ -1,48 +1,115 @@
 import 'package:flutter/material.dart';
-import 'package:shafacode_task/utils/app_color.dart';
-import 'package:shafacode_task/utils/styles.dart';
+import 'package:shafacode_task/utils/image_path.dart';
 
-class GridItem extends StatelessWidget {
-  final String iconPath;
-  final String title;
-  final VoidCallback onTap;
+import 'grid_item.dart';
 
-  const GridItem({
+class GridViewItems extends StatelessWidget {
+  const GridViewItems({
     super.key,
-    required this.iconPath,
-    required this.title,
-    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: AppColor.grayish,
-          borderRadius: BorderRadius.circular(6),
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
+      child: GridView.count(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        crossAxisCount: 3,
+        crossAxisSpacing: 18,
+        mainAxisSpacing: 18,
+        childAspectRatio: 1.2,
+        children: [
+          GridItem(
+            iconPath: ImagePath.cardinal,
+            title: 'Cardinal\nSounds',
+            onTap: () {},
+          ),
 
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              iconPath,
-              width: 23,
-              height: 23,
-              color: AppColor.primaryColor,
-            ),
+          GridItem(
+            iconPath: ImagePath.wallpaper,
+            title: 'Wallpaper',
+            onTap: () {},
+          ),
 
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 2,
-              style: ralewayMedium.copyWith(fontSize: 13),
-            ),
-          ],
-        ),
+          GridItem(
+            iconPath: ImagePath.nature,
+            title: 'Nature Sounds',
+            onTap: () {},
+          ),
+
+          GridItem(
+            iconPath: ImagePath.sleeping,
+            title: 'Sleeping Sounds',
+            onTap: () {},
+          ),
+
+          GridItem(
+            iconPath: ImagePath.meditation,
+            title: 'Meditation',
+            onTap: () {},
+          ),
+
+          GridItem(
+            iconPath: ImagePath.breathing,
+            title: 'Breathing Exercises',
+            onTap: () {},
+          ),
+
+          GridItem(
+            iconPath: ImagePath.short,
+            title: 'Short Meditations',
+            onTap: () {},
+          ),
+
+          GridItem(
+            iconPath: ImagePath.meditational,
+            title: 'Meditational Audios',
+            onTap: () {},
+          ),
+
+          GridItem(
+            iconPath: ImagePath.topFilled,
+            title: 'Top Quotes',
+            onTap: () {},
+          ),
+
+          GridItem(
+            iconPath: ImagePath.soulFilled,
+            title: 'Soul Check-In',
+            onTap: () {},
+          ),
+
+          GridItem(
+            iconPath: ImagePath.sacred,
+            title: 'Sacred Journals',
+            onTap: () {},
+          ),
+
+          GridItem(
+            iconPath: ImagePath.medicine,
+            title: 'Medicine Notes',
+            onTap: () {},
+          ),
+
+          GridItem(
+            iconPath: ImagePath.memorial,
+            title: 'Memorial Cards',
+            onTap: () {},
+          ),
+
+          GridItem(
+            iconPath: ImagePath.save,
+            title: 'Save',
+            onTap: () {},
+          ),
+
+          GridItem(
+            iconPath: ImagePath.cardinals,
+            title: 'Cardinal Quotes',
+            onTap: () {},
+          ),
+        ],
       ),
     );
   }
