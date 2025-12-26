@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shafacode_task/features/auth/widget/custom_next_button.dart';
 import 'package:shafacode_task/features/auth/widget/custom_text_field.dart';
 import 'package:shafacode_task/features/auth/widget/top_tap_bar.dart';
-import 'package:shafacode_task/utils/app_color.dart';
 import 'package:shafacode_task/utils/image_path.dart';
-import 'package:shafacode_task/utils/styles.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -18,6 +17,37 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final _confirmPasswordCtrl = TextEditingController();
   final _emailCtrl = TextEditingController();
   int selectedIndex = 0;
+
+  bool get isFormFilled {
+    return _usernameCtrl.text.isNotEmpty &&
+        _passwordCtrl.text.isNotEmpty &&
+        _confirmPasswordCtrl.text.isNotEmpty &&
+        _emailCtrl.text.isNotEmpty;
+  }
+
+
+  @override
+  void initState() {
+    super.initState();
+    _usernameCtrl.addListener(_onTextChange);
+    _passwordCtrl.addListener(_onTextChange);
+    _confirmPasswordCtrl.addListener(_onTextChange);
+    _emailCtrl.addListener(_onTextChange);
+  }
+
+  void _onTextChange() {
+    setState(() {});
+  }
+
+  @override
+  void dispose() {
+    _usernameCtrl.dispose();
+    _passwordCtrl.dispose();
+    _confirmPasswordCtrl.dispose();
+    _emailCtrl.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +93,32 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
 
+                  CustomNextButton(
+                    onTap: () {
+                      if (!isFormFilled) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Please fill all fields'),
+                          ),
+                        );
+                        return;
+                      }
+                      // Navigator.pushAndRemoveUntil(
+                      //   context,
+                      //   MaterialPageRoute(builder: (_) => const HomeScreen()),
+                      //       (route) => false,
+                      // );
+                    },
+                    isEnabled: isFormFilled,
+                  ),
+
+                  SizedBox(height: 14),
+
+                  Image.asset(ImagePath.image,
+                      height: 250,
+                      width: MediaQuery.sizeOf(context).width,
+                      fit: BoxFit.fill
+                  ),
                 ],
               ),
             ],
