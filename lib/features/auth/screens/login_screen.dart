@@ -45,76 +45,92 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFEF0D6),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: SafeArea(
-          child: Column(
-            children: [
-              Column(
-                children: [
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            scrollDirection: Axis.vertical,
 
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Image.asset(ImagePath.bird,
-                        height: 263,
-                        width: 263,
-                        fit: BoxFit.fill
-                    ),
-                  ),
-
-                  TopTabBar(
-                    selectedIndex: selectedIndex,
-                    signUp: () {
-                      setState(() => selectedIndex = 0);
-                      Navigator.pop(context);
-                    },
-                    login: () {
-                      setState(() => selectedIndex = 1);
-                    },
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25, right: 25, top: 40, bottom: 40),
-                    child: Column(
-                      spacing: 15,
-                      children: [
-                        CustomTextField(hintText: 'Enter your email address', controller: _emailCtrl),
-                        CustomTextField(hintText: 'Enter Password', controller: _passwordCtrl, isPassword: true,),
-                      ],
-                    ),
-                  ),
-
-                  CustomNextButton(
-                    onTap: () {
-                      if (!isFormFilled) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Please fill all fields'),
-                          ),
-                        );
-                        return;
-                      }
-                      // Navigator.pushAndRemoveUntil(
-                      //   context,
-                      //   MaterialPageRoute(builder: (_) => const HomeScreen()),
-                      //       (route) => false,
-                      // );
-                    },
-                    isEnabled: isFormFilled,
-                  ),
-
-                  SizedBox(height: 14),
-
-                  Image.asset(ImagePath.image,
-                      height: 250,
-                      width: MediaQuery.sizeOf(context).width,
-                      fit: BoxFit.fill
-                  ),
-                ],
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: constraints.maxHeight,
               ),
-            ],
-          ),
-        ),
+              child: IntrinsicHeight(
+                child: SafeArea(
+                  child: Column(
+                    children: [
+
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Image.asset(
+                          ImagePath.bird,
+                          height: 263,
+                          width: 263,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+
+                      TopTabBar(
+                        selectedIndex: selectedIndex,
+                        signUp: () {
+                          setState(() => selectedIndex = 0);
+                          Navigator.pop(context);
+                        },
+                        login: () {
+                          setState(() => selectedIndex = 1);
+                        },
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 25,
+                          vertical: 40,
+                        ),
+                        child: Column(
+                          spacing: 15,
+                          children: [
+                            CustomTextField(
+                              hintText: 'Enter your email address',
+                              controller: _emailCtrl,
+                            ),
+                            CustomTextField(
+                              hintText: 'Enter Password',
+                              controller: _passwordCtrl,
+                              isPassword: true,
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      CustomNextButton(
+                        onTap: () {
+                          if (!isFormFilled) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Please fill all fields'),
+                              ),
+                            );
+                            return;
+                          }
+                        },
+                        isEnabled: isFormFilled,
+                      ),
+
+                      SizedBox(height: 65),
+
+                      const Spacer(),
+
+                      Image.asset(
+                        ImagePath.image,
+                        width: MediaQuery.sizeOf(context).width,
+                        fit: BoxFit.fill,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
