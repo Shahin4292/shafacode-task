@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shafacode_task/features/auth/widget/custom_next_button.dart';
 import 'package:shafacode_task/features/auth/widget/custom_text_field.dart';
 import 'package:shafacode_task/features/auth/widget/top_tap_bar.dart';
+import 'package:shafacode_task/navigation/bottom_nav.dart';
 import 'package:shafacode_task/utils/image_path.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -17,10 +18,8 @@ class _LoginScreenState extends State<LoginScreen> {
   int selectedIndex = 1;
 
   bool get isFormFilled {
-    return _passwordCtrl.text.isNotEmpty &&
-        _emailCtrl.text.isNotEmpty;
+    return _passwordCtrl.text.isNotEmpty && _emailCtrl.text.isNotEmpty;
   }
-
 
   @override
   void initState() {
@@ -39,7 +38,6 @@ class _LoginScreenState extends State<LoginScreen> {
     _emailCtrl.dispose();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -111,6 +109,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             );
                             return;
                           }
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(builder: (_) => const BottomNav()),
+                                (route) => false,
+                          );
                         },
                         isEnabled: isFormFilled,
                       ),
@@ -120,6 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const Spacer(),
 
                       Image.asset(
+                        height: 250,
                         ImagePath.image,
                         width: MediaQuery.sizeOf(context).width,
                         fit: BoxFit.fill,

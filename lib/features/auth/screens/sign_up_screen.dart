@@ -3,6 +3,7 @@ import 'package:shafacode_task/features/auth/screens/login_screen.dart';
 import 'package:shafacode_task/features/auth/widget/custom_next_button.dart';
 import 'package:shafacode_task/features/auth/widget/custom_text_field.dart';
 import 'package:shafacode_task/features/auth/widget/top_tap_bar.dart';
+import 'package:shafacode_task/navigation/bottom_nav.dart';
 import 'package:shafacode_task/utils/image_path.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -118,11 +119,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             );
                             return;
                           }
-                          // Navigator.pushAndRemoveUntil(
-                          //   context,
-                          //   MaterialPageRoute(builder: (_) => const HomeScreen()),
-                          //       (route) => false,
-                          // );
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(builder: (_) => const BottomNav()),
+                                (route) => false,
+                          );
                           controllerClean();
                         },
                         isEnabled: isFormFilled,
