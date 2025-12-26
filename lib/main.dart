@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'features/sign_up/screens/sign_up_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -11,10 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
+      home: SignUpScreen(),
     );
   }
 }
