@@ -39,14 +39,14 @@ class CategoryChip extends StatelessWidget {
               iconPath,
               width: 24,
               height: 24,
-              color: AppColor.primaryColor.withOpacity(0.5),
+              color: AppColor.primaryColor.withOpacity(0.7),
             ),
 
             Text(
               label,
               style: ralewayMedium.copyWith(
                 fontSize: 15,
-                color: AppColor.primaryColor.withOpacity(0.5),
+                color: AppColor.primaryColor.withOpacity(0.7),
               ),
             ),
           ],

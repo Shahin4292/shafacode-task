@@ -12,8 +12,21 @@ class ImagePath {
   static const String soundFilled = 'assets/icons/sound_filled.png';
   static const String topFilled = 'assets/icons/top_filled.png';
   static const String soulFilled = 'assets/icons/soul_filled.png';
-
   static const String popular = 'assets/icons/popular.png';
   static const String latest = 'assets/icons/latest.png';
   static const String grief = 'assets/icons/grief.png';
+
+  static const String cardinal = 'assets/icons/cardinal.png';
+  static const String wallpaper = 'assets/icons/wallpaper.png';
+  static const String nature = 'assets/icons/nature.png';
+  static const String sleeping = 'assets/icons/sleeping.png';
+  static const String meditation = 'assets/icons/meditation.png';
+  static const String breathing = 'assets/icons/breathing.png';
+  static const String short = 'assets/icons/short.png';
+  static const String meditational = 'assets/icons/meditational.png';
+  static const String sacred = 'assets/icons/sacred.png';
+  static const String medicine = 'assets/icons/medicine.png';
+  static const String memorial = 'assets/icons/memorial.png';
+  static const String save = 'assets/icons/save.png';
+  static const String cardinals = 'assets/icons/cardinals.png';
 }
