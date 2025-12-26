@@ -18,8 +18,3 @@ const ralewayBold = TextStyle(
   fontFamily: 'Raleway',
   fontWeight: FontWeight.w700,
 );
-
-const interBlack = TextStyle(
-  fontFamily: 'Inter',
-  fontWeight: FontWeight.w900,
-);

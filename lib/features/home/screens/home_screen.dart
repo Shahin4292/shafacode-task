@@ -157,7 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 13),
               
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 25),
+                margin: EdgeInsets.only(left: 25, right: 25, bottom: 25),
                 height: 132,
                 width: MediaQuery.sizeOf(context).width,
                 decoration: BoxDecoration(
@@ -165,7 +165,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   borderRadius: BorderRadius.circular(12),
                 ),
               )
-
             ],
           ),
         ),

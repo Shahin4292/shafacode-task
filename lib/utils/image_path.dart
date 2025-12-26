@@ -11,6 +11,10 @@ class ImagePath {
   static const String struggle = 'assets/images/struggle.png';
   static const String be = 'assets/images/be.png';
   static const String positive = 'assets/images/positive.png';
+  static const String wiperOne = 'assets/images/wiper_one.png';
+  static const String wiperTwo = 'assets/images/wiper_two.png';
+  static const String subtract = 'assets/images/subtract.png';
+  static const String music = 'assets/images/music.png';
 
   static const String homeOutline = 'assets/icons/home_outline.png';
   static const String soundOutline = 'assets/icons/sound_outline.png';
