@@ -12,4 +12,8 @@ class ImagePath {
   static const String soundFilled = 'assets/icons/sound_filled.png';
   static const String topFilled = 'assets/icons/top_filled.png';
   static const String soulFilled = 'assets/icons/soul_filled.png';
+
+  static const String popular = 'assets/icons/popular.png';
+  static const String latest = 'assets/icons/latest.png';
+  static const String grief = 'assets/icons/grief.png';
 }
