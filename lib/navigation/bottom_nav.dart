@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shafacode_task/features/home/screens/home_screen.dart';
+import 'package:shafacode_task/features/soul/screens/soul_screen.dart';
 import 'package:shafacode_task/features/sound/screens/sound_screen.dart';
 import 'package:shafacode_task/utils/app_color.dart';
 import 'package:shafacode_task/utils/image_path.dart';
@@ -25,7 +26,7 @@ class _BottomNavState extends State<BottomNav> {
   final List<Widget> _screens = const [
     HomeScreen(),
     SoundScreen(),
-    Center(child: Text("Soul")),
+    SoulScreen(),
     Center(child: Text("Top")),
     Center(child: Text("More")),
   ];
