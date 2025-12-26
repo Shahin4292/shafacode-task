@@ -55,7 +55,7 @@ class _BottomNavState extends State<BottomNav> {
           items: [
             BottomNavigationBarItem(
               icon: Image.asset(
-                _selectedIndex == 0 ? ImagePath.homeFilled : ImagePath.home,
+                _selectedIndex == 0 ? ImagePath.homeFilled : ImagePath.homeOutline,
                 height: 24,
                 width: 24,
               ),
@@ -63,7 +63,7 @@ class _BottomNavState extends State<BottomNav> {
             ),
             BottomNavigationBarItem(
               icon: Image.asset(
-                _selectedIndex == 1 ? ImagePath.soundFilled : ImagePath.sound,
+                _selectedIndex == 1 ? ImagePath.soundFilled : ImagePath.soundOutline,
                 height: 24,
                 width: 24,
               ),
@@ -71,7 +71,7 @@ class _BottomNavState extends State<BottomNav> {
             ),
             BottomNavigationBarItem(
               icon: Image.asset(
-                _selectedIndex == 2 ? ImagePath.soulFilled : ImagePath.soul,
+                _selectedIndex == 2 ? ImagePath.soulFilled : ImagePath.soulOutline,
                 height: 24,
                 width: 24,
               ),
@@ -79,7 +79,7 @@ class _BottomNavState extends State<BottomNav> {
             ),
             BottomNavigationBarItem(
               icon: Image.asset(
-                _selectedIndex == 3 ? ImagePath.topFilled : ImagePath.top,
+                _selectedIndex == 3 ? ImagePath.topFilled : ImagePath.topOutline,
                 height: 24,
                 width: 24,
               ),
@@ -90,7 +90,7 @@ class _BottomNavState extends State<BottomNav> {
                 ImagePath.more,
                 height: 24,
                 width: 24,
-                color: _selectedIndex == 4 ? const Color(0xFF5B2A1D) : const Color(0xFF8A5A44),
+                color: _selectedIndex == 4 ? AppColor.primaryColor : AppColor.primaryColor.withOpacity(0.7),
               ),
               label: 'More',
             ),
